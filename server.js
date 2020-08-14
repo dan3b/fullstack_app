@@ -12,14 +12,15 @@ const router = express.Router();
 
 // this is our MongoDB database
 const dbRoute =
-  'mongodb://<your-db-username-here>:<your-db-password-here>@ds249583.mlab.com:49583/fullstack_app';
+  'mongodb+srv://<userName>:<password>@mongodbintro.1ovmg.mongodb.net/<dbName>?retryWrites=true&w=majority';
+
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });
 
 let db = mongoose.connection;
 
-db.once('open', () => console.log('connected to the database'));
+db.once('open', () => console.log('Connected to MongoDB'));
 
 // checks if connection with the database is successful
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
